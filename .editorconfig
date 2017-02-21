@@ -1,0 +1,27 @@
+#
+# @see http://editorconfig.org/
+#
+
+root = true
+
+[*.{js,php,py,yml}]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{html,rb,tpl,twig,xml}]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+#
+# Following languages aren't used at the moment in Fork CMS, but just in case.
+# (for instance: Capistrano is used in a lot of projects for deployment)
+#
+# [*.{py,rb}]
