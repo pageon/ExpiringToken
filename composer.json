@@ -1,0 +1,31 @@
+{
+  "name": "pageon/expiring-token",
+  "description": "A cryptographically safe token with a build in customizable expiration date",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "token",
+    "expiring",
+    "password reset",
+    "password forgotten",
+    "php"
+  ],
+  "support": {
+    "issues": "https://github.com/Pageon/ExpriringToken/issues"
+  },
+  "homepage": "https://pageon.github.io/ExpriringToken",
+  "authors": [
+    {
+      "name": "Jelmer Prins",
+      "email": "jelmer@pageon.be"
+    }
+  ],
+  "require": {
+    "php": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pageon\\": "src"
+    }
+  }
+}
