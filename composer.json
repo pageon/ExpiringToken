@@ -6,6 +6,7 @@
   "keywords": [
     "token",
     "expiring",
+    "time sensitive",
     "password reset",
     "password forgotten",
     "php"
