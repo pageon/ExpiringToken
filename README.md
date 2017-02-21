@@ -40,6 +40,6 @@ This can be used to validate the current token against an other token
 
 Returns a bool indicating if the current token has expired
 
-## ExpiringToken::getExpiresOn
+### ExpiringToken::getExpiresOn
 
 Can be used to get the expiration date of the token
