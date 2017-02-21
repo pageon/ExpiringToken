@@ -1,0 +1,22 @@
+language: php
+
+matrix:
+  include:
+    - php: 7.0
+    - php: 7.1
+    - php: hhvm
+  allow_failures:
+    - php: hhvm
+
+script:
+  - phpunit --coverage-clover=coverage.clover
+  - bin/phpcs --standard=psr2 --extensions=php --warning-severity=0 --report=full "src"
+
+before_script:
+  - composer install
+
+after_success:
+  - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
+
+sudo: false
