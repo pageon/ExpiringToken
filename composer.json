@@ -24,9 +24,19 @@
   "require": {
     "php": "^7.0"
   },
+  "config": {
+    "platform": {
+      "php": "7.0.0"
+    }
+  },
   "autoload": {
     "psr-4": {
       "Pageon\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pageon\\Tests\\": "tests/"
     }
   },
   "require-dev": {
