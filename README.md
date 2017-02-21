@@ -1,38 +1,45 @@
-## Welcome to GitHub Pages
+# Expiring Token
 
-You can use the [editor on GitHub](https://github.com/Pageon/ExpriringToken/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[![Build Status](https://travis-ci.org/Pageon/ExpiringToken.svg?branch=master)](https://travis-ci.org/Pageon/ExpiringToken)
+[![Latest Stable Version](https://poser.pugx.org/pageon/expiring-token/v/stable.svg)](https://packagist.org/packages/Pageon/ExpiringToken)
+[![License](https://poser.pugx.org/pageon/expiring-token/license.svg)](https://packagist.org/packages/Pageon/ExpiringToken)
+[![Code Coverage](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/?branch=master)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The expiring token generates a random token of 128 characters with an expiration date.
 
-### Markdown
+The token uses base64 but the length is calculated so that it is url safe, so no padding with the = character.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The actual token is generated with `random_bytes` with a length of `32`
 
-```markdown
-Syntax highlighted code block
+## Public api
 
-# Header 1
-## Header 2
-### Header 3
+### ExpiringToken::create
 
-- Bulleted
-- List
+You can create a new token this way. It accepts a `DateInterval` as optional parameter to set a different expiration date.
+ 
+The default expiration date is 3 days.
 
-1. Numbered
-2. List
+### ExpiringToken::fromString
 
-**Bold** and _Italic_ and `Code` text
+Used to create an instance of the token from the string representation
 
-[Link](url) and ![Image](src)
-```
+### ExpiringToken::__toString
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+This turns the class instance into the string version of the token when the instance is used as or cast to a string.
 
-### Jekyll Themes
+### ExpiringToken::validateAgainst
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Pageon/ExpriringToken/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+This can be used to validate the current token against an other token
+ 
+* When the tokens maths this method will return `true`
+* An `InvalidToken` exception will be thrown if the tokens don't match
+* An `TokenHasExpired` exception will be thrown if the token has expired
 
-### Support or Contact
+### ExpiringToken::hasExpired
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Returns a bool indicating if the current token has expired
 
+## ExpiringToken::getExpiresOn
+
+Can be used to get the expiration date of the token
