@@ -18,7 +18,9 @@ class ExpiringTokenTest extends TestCase
 
         self::assertEquals(
             $now->add(new DateInterval(ExpiringToken::DEFAULT_DATE_INTERVAL)),
-            $expiringToken->getExpiresOn()
+            $expiringToken->getExpiresOn(),
+            '',
+            1
         );
         self::assertFalse($expiringToken->hasExpired());
     }
@@ -31,7 +33,9 @@ class ExpiringTokenTest extends TestCase
 
         self::assertEquals(
             $now->add($fourDaysInterval),
-            $expiringToken->getExpiresOn()
+            $expiringToken->getExpiresOn(),
+            '',
+            1
         );
         self::assertFalse($expiringToken->hasExpired());
     }
@@ -91,7 +95,12 @@ class ExpiringTokenTest extends TestCase
     public function testSuccessfulEnAndDecodingOfToken()
     {
         $expiringToken = ExpiringToken::create();
-        self::assertEquals($expiringToken, ExpiringToken::fromString((string) $expiringToken));
+        self::assertEquals(
+            $expiringToken,
+            ExpiringToken::fromString((string) $expiringToken),
+            '',
+            1
+        );
     }
 
     public function testValidToken()
