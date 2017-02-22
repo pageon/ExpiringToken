@@ -1,8 +1,7 @@
 # Expiring Token
 
 [![Build Status](https://travis-ci.org/Pageon/ExpiringToken.svg?branch=master)](https://travis-ci.org/Pageon/ExpiringToken)
-[![Latest Stable Version](https://poser.pugx.org/pageon/expiring-token/v/stable.svg)](https://packagist.org/packages/Pageon/ExpiringToken)
-[![License](https://poser.pugx.org/pageon/expiring-token/license.svg)](https://packagist.org/packages/Pageon/ExpiringToken)
+[![License](https://poser.pugx.org/pageon/expiring-token/license.svg)](https://packagist.org/packages/pageon/expiring-token)
 [![Code Coverage](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Pageon/ExpiringToken/?branch=master)
 
@@ -10,7 +9,7 @@ The expiring token generates a random token of 128 characters with an expiration
 
 The token uses base64 but the length is calculated so that it is url safe, so no padding with the = character.
 
-The actual token is generated with `random_bytes` with a length of `32`
+The actual token is generated with [random_bytes](http://php.net/manual/en/function.random-bytes.php) with a length of `32`
 
 ## Installation
 
@@ -22,7 +21,7 @@ You can add this library as a local, per-project dependency to your project usin
 
 ### ExpiringToken::create
 
-You can create a new token this way. It accepts a `DateInterval` as optional parameter to set a different expiration date.
+You can create a new token this way. It accepts a [DateInterval](http://php.net/manual/en/class.dateinterval.php) as optional parameter to set a different expiration date.
  
 The default expiration date is 3 days.
 
