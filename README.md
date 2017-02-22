@@ -12,6 +12,12 @@ The token uses base64 but the length is calculated so that it is url safe, so no
 
 The actual token is generated with `random_bytes` with a length of `32`
 
+## Installation
+
+You can add this library as a local, per-project dependency to your project using [Composer](https://getcomposer.org/):
+
+    composer require pageon/expiring-token
+
 ## Public api
 
 ### ExpiringToken::create
